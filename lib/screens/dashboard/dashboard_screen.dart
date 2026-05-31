@@ -803,9 +803,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 Expanded(
                     child: _buildUpiStat(
                         'Income', upiIncomeMonth, const Color(0xFF10B981), context)),
+                const SizedBox(width: 8),
                 Expanded(
                     child: _buildUpiStat(
                         'Expense', upiExpenseMonth, const Color(0xFFEF4444), context)),
+                const SizedBox(width: 8),
                 Expanded(
                     child: _buildUpiStat('Net', upiIncomeMonth - upiExpenseMonth,
                         const Color(0xFF3B82F6), context)),
@@ -816,14 +818,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
               const Divider(),
               const SizedBox(height: 12),
               Text(
-                'Top UPI Apps',
+                'UPI Apps',
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall
                     ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 12),
-              ...upiBreakdown.entries.take(3).map((entry) {
+              ...upiBreakdown.entries.map((entry) {
                 final inc = entry.value['income'] as double;
                 final exp = entry.value['expense'] as double;
                 final count = entry.value['count'] as int;
